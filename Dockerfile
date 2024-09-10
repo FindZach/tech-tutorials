@@ -13,11 +13,11 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the Angular application
-RUN npm run build:ssr
+# Build the Angular application for SSR
+RUN ng build --configuration production && ng run tech-tutorials:server:production
 
 # Expose the port the app runs on
 EXPOSE 4000
 
 # Start the Angular Universal server
-CMD ["node", "dist/server/main.js"]
+CMD ["node", "dist/tech-tutorials/server/server.mjs"]
