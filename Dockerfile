@@ -7,8 +7,8 @@ WORKDIR /usr/src/app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies, including the Angular CLI globally
+RUN npm install -g @angular/cli@18.2.1 && npm install
 
 # Copy the rest of the application code
 COPY . .
