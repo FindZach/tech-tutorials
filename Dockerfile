@@ -20,4 +20,4 @@ RUN ng build --configuration production && ng run tech-tutorials:server:producti
 EXPOSE 4000
 
 # Start the Angular Universal server
-CMD ["node", "/usr/src/app/dist/tech-tutorials/server/server.mjs"]
+CMD ["node", "app/dist/tech-tutorials/server/server.mjs"]
