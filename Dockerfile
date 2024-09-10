@@ -14,7 +14,9 @@ RUN npm install -g @angular/cli@18.2.1 && npm install
 COPY . .
 
 # Build the Angular application for SSR
-RUN ng build --configuration production && ng run tech-tutorials:server:production
+RUN ng build --configuration production && \
+    ng run tech-tutorials:server:production || \
+    (echo "Build failed. Here's the output of ng version:" && ng version && exit 1)
 
 # Expose the port the app runs on
 EXPOSE 4000
